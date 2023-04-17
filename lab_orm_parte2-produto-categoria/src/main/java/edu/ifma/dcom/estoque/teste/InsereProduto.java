@@ -1,11 +1,14 @@
 package edu.ifma.dcom.estoque.teste;
 
+import edu.ifma.dcom.estoque.entity.Categoria;
 import edu.ifma.dcom.estoque.entity.Produto;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Set;
 
 public class InsereProduto {
 
@@ -15,13 +18,17 @@ public class InsereProduto {
 
         EntityManager manager = factory.createEntityManager();
 
-        Produto notebook = new Produto();
-        notebook.setNome("Notebook Acer Core 19");
-        notebook.setPrecoAtual(new BigDecimal(4000.0));
-
         manager.getTransaction().begin();
+        Categoria informatica = manager.find(Categoria.class, 1);
+
+        Produto notebook = Produto.builder()
+                .nome("Notebook Acer Core i7")
+                .precoAtual(new BigDecimal(4000.0))
+                .categorias(Set.of(informatica))
+                .build();
+
         manager.persist(notebook );
-        manager.getTransaction(). commit();
+        manager.getTransaction().commit();
 
 
         manager.close();
