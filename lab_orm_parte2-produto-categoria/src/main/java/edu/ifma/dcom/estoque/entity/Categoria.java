@@ -22,6 +22,7 @@ public class Categoria {
     @JoinColumn(name = "categoria_pai", nullable = true)
     private Categoria categoriaPai;
 
+
    @OneToMany(mappedBy = "categoriaPai")
     private Set<Categoria> subCategorias = new LinkedHashSet<>();
 }

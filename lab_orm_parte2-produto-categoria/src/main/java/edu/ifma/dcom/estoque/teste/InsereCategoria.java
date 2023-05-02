@@ -17,10 +17,10 @@ public class InsereCategoria {
 
         EntityManager manager = factory.createEntityManager();
 
-        cadastraCategoria(manager );
+//        cadastraCategoria(manager );
+
         cadastrarSubCategoria(manager, "HD Externo");
         cadastrarSubCategoria(manager, "Pen Drive");
-
         manager.close();
         factory.close();
     }
@@ -29,6 +29,7 @@ public class InsereCategoria {
         Categoria informatica = Categoria.builder()
                 .nome("Informática")
                 .build();
+
         manager.getTransaction().begin();
         manager.persist(informatica );
         manager.getTransaction().commit();

@@ -27,7 +27,7 @@ public class Produto {
     @Column(name = "preco_atual")
     private BigDecimal precoAtual;
 
-    @Setter(AccessLevel.PRIVATE)
+    @Setter(AccessLevel.NONE)
     @Column(name = "quantidade_estoque")
     private Integer quantidaEstoque = 0;
 

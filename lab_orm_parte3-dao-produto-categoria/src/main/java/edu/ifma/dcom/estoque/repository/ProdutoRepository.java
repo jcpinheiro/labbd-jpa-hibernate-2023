@@ -13,7 +13,6 @@ public class ProdutoRepository {
 
     public ProdutoRepository(EntityManager manager) {
         this.manager = manager;
-
     }
 
     public Produto buscaPorId(Integer id) {
@@ -46,6 +45,8 @@ public class ProdutoRepository {
             this.manager.persist(produto);
         else
             produto = this.manager.merge(produto);
+
+
 
         return produto;
     }
