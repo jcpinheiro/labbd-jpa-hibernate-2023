@@ -1,7 +1,7 @@
 package edu.ifma.dcom;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
 public class Main {
     public static void main(String[] args) {

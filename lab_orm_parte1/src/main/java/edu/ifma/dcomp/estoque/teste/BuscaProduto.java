@@ -2,9 +2,9 @@ package edu.ifma.dcom.estoque.teste;
 
 import edu.ifma.dcom.estoque.entity.Produto;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import java.math.BigDecimal;
 
 public class BuscaProduto {
@@ -17,7 +17,7 @@ public class BuscaProduto {
 
         manager.getTransaction().begin();
         Produto produto = manager.find(Produto.class, 3);
-        produto.setNome("Notebook Positivo");
+        produto.setNome("Notebook Dell Core i7");
 
         manager.getTransaction().commit();
 
