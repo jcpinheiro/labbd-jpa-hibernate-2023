@@ -1,8 +1,9 @@
 package edu.ifma.dcom.estoque.entity;
 
+import jakarta.persistence.Entity;
 import lombok.*;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.LinkedHashSet;
 import java.util.Objects;
@@ -50,7 +51,6 @@ public class Produto {
         if (quantidade <= 0) {
             throw new IllegalArgumentException("A quantidade deve ser um Valor Positivo");
         }
-        System.out.println("########## " + this.quantidaEstoque );
         this.quantidaEstoque = this.getQuantidaEstoque() + quantidade;
     }
 

@@ -1,7 +1,7 @@
 package edu.ifma.dcom.estoque.entity;
 
-import javax.persistence.Embeddable;
-import javax.persistence.ManyToOne;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -14,19 +14,19 @@ class ItemPedidoPK implements Serializable {
     @ManyToOne
     private Produto produto;
 
-    public Pedido getPedido() {
+    Pedido getPedido() {
         return pedido;
     }
 
-    public void setPedido(Pedido pedido) {
+    void setPedido(Pedido pedido) {
         this.pedido = pedido;
     }
 
-    public Produto getProduto() {
+    Produto getProduto() {
         return produto;
     }
 
-    public void setProduto(Produto produto) {
+    void setProduto(Produto produto) {
         this.produto = produto;
     }
 

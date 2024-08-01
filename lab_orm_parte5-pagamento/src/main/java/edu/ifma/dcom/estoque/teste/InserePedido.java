@@ -2,13 +2,13 @@ package edu.ifma.dcom.estoque.teste;
 
 import edu.ifma.dcom.estoque.entity.*;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
 import java.math.BigDecimal;
 
-public class TestePedido {
+public class InserePedido {
 
 	public static void main(String[] args) {
 
@@ -39,21 +39,21 @@ public class TestePedido {
 		pedido.setDesconto(BigDecimal.TEN);
 		pedido.setFrete(BigDecimal.ZERO);
 
-		pedido.setEnderecoEntrega(enderecoEntrega);
+		pedido.setEnderecoEntrega(enderecoEntrega );
 		
 		ItemPedido item = new ItemPedido();
 
 		//item.getId().setProduto(produto );
 		item.setProduto(produto );
-		item.setQuantidade(10);
+		item.setQuantidade(10 );
 
 		//Regra de Negócio: nao posso alterar o preço
 		//item.setPreco(new BigDecimal(2.32));
 
-		item.setPedido(pedido);
-		pedido.adiciona(item);
+		item.setPedido(pedido );
+		pedido.adiciona(item );
 		
-		manager.persist(pedido);
+		manager.persist(pedido );
 		
 		transacao.commit();
 

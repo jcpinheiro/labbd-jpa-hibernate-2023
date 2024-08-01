@@ -1,17 +1,12 @@
 package edu.ifma.dcom.estoque.entity;
 
-import edu.ifma.dcom.estoque.entity.Cliente;
 import edu.ifma.dcom.estoque.entity.enums.EstadoPedido;
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -31,7 +26,7 @@ public @Data class Pedido {
     private BigDecimal desconto = BigDecimal.ZERO;
 
     @Column(columnDefinition = "text")
-    private String observacoes;
+     private String observacoes;
 
 
     @OneToMany(mappedBy = "id.pedido", cascade = CascadeType.ALL)
@@ -43,6 +38,7 @@ public @Data class Pedido {
     @ManyToOne
     private Cliente cliente;
 
+    @Getter
     @Embedded
     private EnderecoEntrega enderecoEntrega;
 
@@ -52,24 +48,12 @@ public @Data class Pedido {
     }
 
 
-    public EnderecoEntrega getEnderecoEntrega() {
-        return enderecoEntrega;
-    }
-
     public void finaliza() {
         this.estadoPedido = estadoPedido.finaliza();
     }
 
     public void cancela() {
         this.estadoPedido = estadoPedido.cancela();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pedido pedido = (Pedido) o;
-        return Objects.equals(id, pedido.id);
     }
 
     @Transient
@@ -80,11 +64,13 @@ public @Data class Pedido {
            total = total.add(item.getSubTotal() );
        }
        return total.add(frete).subtract(desconto);*/
-    // solução 02
-      /* return itens.stream()
+
+      // solução 02
+      /*return itens.stream()
                .map(item -> item.getSubTotal())
                .reduce(BigDecimal.ZERO, (x, y) -> x.add(y));*/
-    // solução 03
+
+       // solução 03
        BigDecimal total = itens.stream()
                                .map(ItemPedido::getSubTotal)
                                .reduce(BigDecimal.ZERO, BigDecimal::add);

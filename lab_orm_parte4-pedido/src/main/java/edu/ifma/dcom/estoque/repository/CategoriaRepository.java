@@ -2,7 +2,7 @@ package edu.ifma.dcom.estoque.repository;
 
 import edu.ifma.dcom.estoque.entity.Categoria;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import java.util.List;
 import java.util.Objects;
 

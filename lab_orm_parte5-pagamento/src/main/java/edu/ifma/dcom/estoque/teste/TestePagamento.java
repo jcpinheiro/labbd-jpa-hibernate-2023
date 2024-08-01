@@ -2,10 +2,11 @@ package edu.ifma.dcom.estoque.teste;
 
 import edu.ifma.dcom.estoque.entity.*;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import edu.ifma.dcom.estoque.entity.enums.SituacaoPagamento;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
 import java.math.BigDecimal;
 
 public class TestePagamento {
@@ -19,17 +20,35 @@ public class TestePagamento {
 		EntityTransaction transacao = manager.getTransaction();
 
 		transacao.begin();
-		
-		Cliente cliente = manager.find(Cliente.class, 1);
+		Pedido pedido = manager.find(Pedido.class, 1);
+		PagamentoCartao pagamentoCartao = new PagamentoCartao();
+		pagamentoCartao.setNumeroDeParcelas((short) 3);
+
+		pagamentoCartao.setPedido(pedido );
+		pagamentoCartao.setSituacaoPagamento(SituacaoPagamento.QUITADO);
+
+
+        manager.persist(pagamentoCartao);
+
+		transacao.commit();
+
+		manager.close();
+		factory.close();
+	}
+}
+
+
+////////////
+/*Cliente cliente = manager.find(Cliente.class, 1);
 		Produto produto = manager.find(Produto.class, 1);
 
 		EnderecoEntrega enderecoEntrega = new EnderecoEntrega();
 		enderecoEntrega.setLogradouro("Rua da Esperança");
 		enderecoEntrega.setNumero("456");
-		/*enderecoEntrega.setCidade("São Luis");
-		enderecoEntrega.setUf("MA");*/
+		*//*enderecoEntrega.setCidade("São Luis");
+		enderecoEntrega.setUf("MA");*//*
 		enderecoEntrega.setCep("65123-567");
-		
+
 		Pedido pedido = new Pedido();
 		pedido.setCliente(cliente);
 
@@ -40,7 +59,7 @@ public class TestePagamento {
 		pedido.setFrete(BigDecimal.ZERO);
 
 		pedido.setEnderecoEntrega(enderecoEntrega);
-		
+
 		ItemPedido item = new ItemPedido();
 
 		//item.getId().setProduto(produto );
@@ -52,12 +71,5 @@ public class TestePagamento {
 
 		item.setPedido(pedido);
 		pedido.adiciona(item);
-		
-		manager.persist(pedido);
-		
-		transacao.commit();
 
-		manager.close();
-		factory.close();
-	}
-}
+		manager.persist(pedido);*/

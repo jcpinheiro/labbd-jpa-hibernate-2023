@@ -1,20 +1,19 @@
-package edu.ifma.dcom.estoque.util;
+package edu.ifma.dcomp.estoque.util;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
-public class EMFactory {
+public class EMFactory implements AutoCloseable {
 
     private static final EntityManagerFactory factory =
             Persistence.createEntityManagerFactory("pedidovendas");
 
-
     public EntityManager getEntityManager() {
         return factory.createEntityManager();
-
     }
 
+    @Override
     public void close() {
         factory.close();
     }

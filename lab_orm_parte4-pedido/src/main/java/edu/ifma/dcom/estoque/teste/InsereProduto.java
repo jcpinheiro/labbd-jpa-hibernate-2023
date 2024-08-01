@@ -3,11 +3,12 @@ package edu.ifma.dcom.estoque.teste;
 import edu.ifma.dcom.estoque.entity.Categoria;
 import edu.ifma.dcom.estoque.entity.Produto;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import java.math.BigDecimal;
-import java.util.List;
+
+
 import java.util.Set;
 
 public class InsereProduto {
@@ -44,7 +45,7 @@ public class InsereProduto {
                 .build();
 
         Produto produto3 = Produto.builder()
-                .nome("Smartphone Samsung s10")
+                .nome("Smartphone Samsung s23")
                 .precoAtual(new BigDecimal(4500.0))
                 .categorias(Set.of(informatica))
                 .build();

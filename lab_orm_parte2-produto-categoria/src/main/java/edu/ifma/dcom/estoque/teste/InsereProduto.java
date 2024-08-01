@@ -3,9 +3,9 @@ package edu.ifma.dcom.estoque.teste;
 import edu.ifma.dcom.estoque.entity.Categoria;
 import edu.ifma.dcom.estoque.entity.Produto;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Set;
@@ -19,15 +19,17 @@ public class InsereProduto {
         EntityManager manager = factory.createEntityManager();
 
         manager.getTransaction().begin();
+
         Categoria informatica = manager.find(Categoria.class, 1);
+        Categoria eletronico = manager.find(Categoria.class, 2);
 
         Produto notebook = Produto.builder()
-                .nome("Notebook Acer Core i7")
-                .precoAtual(new BigDecimal(4000.0))
-                .categorias(Set.of(informatica))
+                .nome("Notebook Samsung Core i7")
+                .precoAtual(new BigDecimal(4700.0))
+                .categorias(Set.of(informatica, eletronico) )
                 .build();
 
-        manager.persist(notebook );
+        manager.merge(notebook );
         manager.getTransaction().commit();
 
 

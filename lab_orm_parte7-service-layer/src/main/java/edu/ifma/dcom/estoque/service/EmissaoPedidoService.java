@@ -26,8 +26,8 @@ public class EmissaoPedidoService {
 
 		repositorio.salvaOuAtualiza(pedido );
 
-		//this.estoqueService.baixarItensEstoque(pedido);
-		//pedido.setStatus(StatusPedido.FINALIZADO);
+		/*this.estoqueService.baixarItensEstoque(pedido);
+		pedido.setStatus(StatusPedido.FINALIZADO);*/
 
 		pedido.finaliza();
 

@@ -3,12 +3,12 @@ package edu.ifma.dcom.estoque.teste;
 import edu.ifma.dcom.estoque.entity.Endereco;
 import edu.ifma.dcom.estoque.entity.Cliente;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
 
-public class TesteCliente {
+public class InsereCliente {
 
 	public static void main(String[] args) {
         EntityManagerFactory factory =

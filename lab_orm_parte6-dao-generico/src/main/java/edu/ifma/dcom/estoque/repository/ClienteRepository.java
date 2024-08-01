@@ -2,10 +2,10 @@ package edu.ifma.dcom.estoque.repository;
 
 import edu.ifma.dcom.estoque.entity.Cliente;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import java.util.List;
 
-public class ClienteRepository {
+public class ClienteRepository  {
 
     private final EntityManager manager;
     private DAOGenerico<Cliente> daoGenerico;

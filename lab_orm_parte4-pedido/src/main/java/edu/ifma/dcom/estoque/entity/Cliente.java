@@ -1,20 +1,19 @@
 package edu.ifma.dcom.estoque.entity;
 
-import edu.ifma.dcom.estoque.entity.Endereco;
 import edu.ifma.dcom.estoque.entity.enums.TipoCliente;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-@Entity
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@AllArgsConstructor @NoArgsConstructor @Builder
+@Entity
 public @Data class Cliente  {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(nullable = false)

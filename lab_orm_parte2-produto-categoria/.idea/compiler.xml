@@ -8,7 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="lab_orm_parte1" />
-        <module name="lab_orm_parte2-produto-categoria" />
+        <module name="lab_jpa" />
       </profile>
     </annotationProcessing>
   </component>

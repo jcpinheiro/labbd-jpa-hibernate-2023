@@ -1,10 +1,12 @@
 package edu.ifma.dcom.estoque.repository;
 
+import edu.ifma.dcom.estoque.entity.Pagamento;
 import edu.ifma.dcom.estoque.entity.PagamentoBoleto;
+import edu.ifma.dcom.estoque.entity.PagamentoCartao;
 import edu.ifma.dcom.estoque.entity.Pedido;
 import edu.ifma.dcom.estoque.entity.enums.EstadoPedido;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,7 +25,7 @@ public class PedidoRepository {
     }
 
     public Pedido salvaOuAtualiza(Pedido pedido) {
-       return daoGenerico.salvaOuAtualiza(pedido );
+        return daoGenerico.salvaOuAtualiza(pedido );
     }
 
     public List<Pedido> finalizados() {
@@ -34,17 +36,18 @@ public class PedidoRepository {
     }
 
     public List<Pedido> comPagamentoCartao() {
-        return manager
+        return comPagametosDoTipo(PagamentoCartao.class );
+                /*manager
                 .createQuery("Select p From Pedido p join p.pagamento pg where TYPE(pg) = PagamentoCartao",
                         Pedido.class)
                 .getResultList();
-    }
+*/    }
 
     public List<Pedido> comPagamentoBoleto() {
         return comPagametosDoTipo(PagamentoBoleto.class );
     }
 
-    private List<Pedido> comPagametosDoTipo(Class<PagamentoBoleto> clazz) {
+    private List<Pedido> comPagametosDoTipo(Class<?> clazz) {
         return manager
                 .createQuery("Select p From Pedido p where TYPE(p.pagamento) IN (:tipoPagamento)",
                         Pedido.class)

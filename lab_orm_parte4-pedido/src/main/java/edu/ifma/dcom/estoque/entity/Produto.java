@@ -2,7 +2,7 @@ package edu.ifma.dcom.estoque.entity;
 
 import lombok.*;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.LinkedHashSet;
 import java.util.Objects;
@@ -40,7 +40,7 @@ public class Produto {
 
 
     public Integer getQuantidaEstoque() {
-        if (Objects.isNull(quantidaEstoque))
+        if (Objects.isNull(quantidaEstoque) )
             return 0;
         return quantidaEstoque;
     }
@@ -50,7 +50,6 @@ public class Produto {
         if (quantidade <= 0) {
             throw new IllegalArgumentException("A quantidade deve ser um Valor Positivo");
         }
-        System.out.println("########## " + this.quantidaEstoque );
         this.quantidaEstoque = this.getQuantidaEstoque() + quantidade;
     }
 
@@ -65,6 +64,17 @@ public class Produto {
                     + quantidade + " itens do produto " + this.getSku() + ".");
         }
         this.quantidaEstoque = novaQuantidade;
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", sku='" + sku + '\'' +
+                ", precoAtual=" + precoAtual +
+                ", quantidaEstoque=" + quantidaEstoque +
+                '}';
     }
 }
 

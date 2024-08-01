@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
@@ -39,6 +39,7 @@ public @Data class Pedido {
 
     @Enumerated(EnumType.STRING)
     private EstadoPedido estadoPedido = EstadoPedido.ORCAMENTO;
+
 
     @ManyToOne
     private Cliente cliente;

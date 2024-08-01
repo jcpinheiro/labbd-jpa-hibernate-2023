@@ -1,11 +1,10 @@
-package edu.ifma.dcom.estoque.teste;
+package edu.ifma.dcomp.estoque.teste;
 
-import edu.ifma.dcom.estoque.entity.Produto;
+import edu.ifma.dcomp.estoque.entity.Produto;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import java.math.BigDecimal;
 
 public class BuscaProduto {
 

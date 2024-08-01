@@ -1,13 +1,10 @@
 package edu.ifma.dcom.estoque.teste;
 
 import edu.ifma.dcom.estoque.entity.Categoria;
-import edu.ifma.dcom.estoque.entity.Produto;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import java.math.BigDecimal;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
 public class InsereCategoria {
 
@@ -17,31 +14,35 @@ public class InsereCategoria {
 
         EntityManager manager = factory.createEntityManager();
 
-//        cadastraCategoria(manager );
+        cadastraCategoria(manager );
 
-        cadastrarSubCategoria(manager, "HD Externo");
-        cadastrarSubCategoria(manager, "Pen Drive");
+        cadastrarSubCategoria(manager, "Camisa de Algodão");
+        cadastrarSubCategoria(manager, "Calça Jeans");
         manager.close();
         factory.close();
     }
 
     private static void cadastraCategoria(EntityManager manager) {
-        Categoria informatica = Categoria.builder()
-                .nome("Informática")
+        Categoria roupas = Categoria.builder()
+                .nome("Roupas")
+                .build();
+        Categoria alimentos = Categoria.builder()
+                .nome("Alimentos")
                 .build();
 
         manager.getTransaction().begin();
-        manager.persist(informatica );
+        manager.persist(roupas );
+        manager.persist(alimentos );
         manager.getTransaction().commit();
     }
 
     private static void cadastrarSubCategoria(EntityManager manager, String nome) {
 
         manager.getTransaction().begin();
-        Categoria informatica = manager.find(Categoria.class, 1);
+        Categoria roupas = manager.find(Categoria.class, 1);
         Categoria subCategoria = Categoria.builder()
                 .nome(nome)
-                .categoriaPai(informatica)
+                .categoriaPai(roupas)
                 .build();
 
         manager.persist(subCategoria );

@@ -1,24 +1,24 @@
-package edu.ifma.dcom.estoque.teste;
+package edu.ifma.dcomp.estoque.teste;
 
-import edu.ifma.dcom.estoque.entity.Produto;
+import edu.ifma.dcomp.estoque.entity.Produto;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import java.math.BigDecimal;
 
 public class ListaProdutos {
 
     public static void main(String[] args) {
         EntityManagerFactory factory = Persistence
-                .createEntityManagerFactory("lab_jpa");
+                .createEntityManagerFactory("pedidovendas");
 
         EntityManager manager = factory.createEntityManager();
 
         manager.getTransaction().begin();
 
         manager.createQuery("From Produto", Produto.class)
-               .getResultList()
+                //.setMaxResults(2)
+                .getResultList()
                //.forEach(produto -> produto.setPrecoAtual(new BigDecimal(4000)))
                .forEach(System.out::println);
 

@@ -2,7 +2,7 @@ package edu.ifma.dcom.estoque.entity;
 
 import lombok.*;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.LinkedHashSet;
 import java.util.Objects;

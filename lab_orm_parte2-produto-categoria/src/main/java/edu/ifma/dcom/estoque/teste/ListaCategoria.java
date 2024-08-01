@@ -3,9 +3,9 @@ package edu.ifma.dcom.estoque.teste;
 import edu.ifma.dcom.estoque.entity.Categoria;
 import edu.ifma.dcom.estoque.entity.Produto;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Set;
@@ -18,16 +18,18 @@ public class ListaCategoria {
         EntityManager manager = factory.createEntityManager();
 
         Categoria categoriaPai = manager.find(Categoria.class, 1);
+        System.out.println("Categoria Pai : " + categoriaPai.getNome() );
+        System.out.println("---------------------------------");
+        System.out.println(categoriaPai.getSubCategorias());
+        System.out.println("---------------------------------");
 
-        Set<Categoria> subCategorias = categoriaPai.getSubCategorias();
-        subCategorias.forEach(subCategoria -> subCategoria.getSubCategorias() );
-
-        List<Categoria> categorias = manager
+        List<Categoria> subCategorias = manager
                 .createQuery("from Categoria where categoriaPai = :categoria", Categoria.class)
                 .setParameter("categoria", categoriaPai)
                 .getResultList();
 
-        categorias.forEach(categoria -> System.out.println(categoria.getNome() ));
+        System.out.println("---------- subcategorias ---------");
+        subCategorias.forEach(categoria -> System.out.println(categoria ));
 
 
         manager.close();

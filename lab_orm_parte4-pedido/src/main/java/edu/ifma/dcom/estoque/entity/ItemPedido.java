@@ -1,10 +1,11 @@
 package edu.ifma.dcom.estoque.entity;
 
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -15,7 +16,6 @@ public class ItemPedido {
     @EqualsAndHashCode.Include
     @EmbeddedId
     private ItemPedidoPK id = new ItemPedidoPK();
-
     @Getter
     private BigDecimal valor;
     @Getter @Setter

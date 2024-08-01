@@ -1,22 +1,19 @@
 package edu.ifma.dcomp.estoque.teste;
 
-import edu.ifma.dcomp.estoque.entity.Produto;
-import edu.ifma.dcomp.estoque.service.CadastroProdutoService;
+import edu.ifma.dcomp.estoque.service.BuscaProdutoService;
 
-import java.math.BigDecimal;
-
-public class TesteInsereProdutoService {
+public class TesteBuscaProdutoService {
 
     public static void main(String[] args) {
 
-        Produto notebook = new Produto();
-        notebook.setNome("Notebook Acer Core 19");
-        notebook.setSku("NOT3234");
-        notebook.setPrecoAtual(new BigDecimal(5500.0));
+        BuscaProdutoService service = new BuscaProdutoService();
 
-        CadastroProdutoService cadastroProdutoService = new CadastroProdutoService();
-        cadastroProdutoService.salva(notebook );
+        service.buscaPaginada(3,1)
+               .forEach(System.out::println);
 
+        System.out.println("------------------------");
+        service.buscaPorNome("i7")
+                .forEach(System.out::println);
 
 
     }

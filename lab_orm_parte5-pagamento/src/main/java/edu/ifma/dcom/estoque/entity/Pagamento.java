@@ -3,13 +3,13 @@ package edu.ifma.dcom.estoque.entity;
 import edu.ifma.dcom.estoque.entity.enums.SituacaoPagamento;
 import lombok.Data;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-
 public @Data abstract class Pagamento {
+
 
     @Id
     private Integer id;

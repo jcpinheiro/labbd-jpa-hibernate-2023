@@ -4,7 +4,7 @@ import edu.ifma.dcom.estoque.entity.Endereco;
 import edu.ifma.dcom.estoque.entity.enums.TipoCliente;
 import lombok.Data;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
 

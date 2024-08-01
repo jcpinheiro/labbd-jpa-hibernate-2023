@@ -7,7 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="lab_orm_parte4-pedido" />
+        <module name="lab_jpa" />
         <module name="lab_orm_parte3-dao-produto-categoria" />
         <module name="lab_orm_parte1" />
         <module name="lab_orm_parte3-pedido" />

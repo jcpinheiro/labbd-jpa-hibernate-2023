@@ -2,8 +2,8 @@ package edu.ifma.dcom.estoque.repository;
 
 import edu.ifma.dcom.estoque.entity.Produto;
 
-import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import java.util.List;
 import java.util.Objects;
 

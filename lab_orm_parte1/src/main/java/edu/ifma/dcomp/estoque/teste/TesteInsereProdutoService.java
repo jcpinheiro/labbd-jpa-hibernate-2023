@@ -5,14 +5,14 @@ import edu.ifma.dcomp.estoque.service.CadastroProdutoService;
 
 import java.math.BigDecimal;
 
-public class InsereProdutoService {
+public class TesteInsereProdutoService {
 
     public static void main(String[] args) {
 
         Produto notebook = new Produto();
-        notebook.setNome("Notebook Positivo Core 15");
-        notebook.setSku("NOT1234");
-        notebook.setPrecoAtual(new BigDecimal(2500.0));
+        notebook.setNome("Notebook Acer Core 17");
+        notebook.setSku("NOT3239");
+        notebook.setPrecoAtual(new BigDecimal(4500.0));
 
         CadastroProdutoService cadastroProdutoService = new CadastroProdutoService();
         cadastroProdutoService.salva(notebook );

@@ -7,6 +7,7 @@ import edu.ifma.dcom.estoque.service.exception.VendasException;
 import edu.ifma.dcom.estoque.util.EMFactory;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 
 public class EstoqueService  {
 
@@ -21,7 +22,9 @@ public class EstoqueService  {
 	public void baixarItensEstoque(Pedido pedido) throws VendasException {
         manager.getTransaction().begin();
 		pedido = this.repositorio.porId(pedido.getId());
+
 		pedido.getItens().forEach(item -> item.baixarEstoque(item.getQuantidade()));
+
 		manager.getTransaction().commit();
 	}
 

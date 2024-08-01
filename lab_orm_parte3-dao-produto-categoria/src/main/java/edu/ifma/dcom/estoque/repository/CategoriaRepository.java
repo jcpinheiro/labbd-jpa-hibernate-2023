@@ -29,13 +29,14 @@ public class CategoriaRepository {
 
 	public List<Categoria> categoriasPai() {
 		return manager
-				.createQuery("Select c from Categoria c where categoriaPai is null",
+				//.createQuery("Select c from Categoria c where categoriaPai is null",
+				.createQuery("From Categoria where categoriaPai is null",
 						     Categoria.class)
 				      .getResultList();
 	}
 
 	public List<Categoria> subcategoriasDe(Categoria categoriaPai) {
-		return manager.createQuery("from Categoria where categoriaPai = :categoria", Categoria.class)
+		return manager.createQuery("From Categoria where categoriaPai = :categoria", Categoria.class)
 				.setParameter("categoria", categoriaPai)
 				.getResultList();
 	}
